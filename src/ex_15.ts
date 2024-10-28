@@ -13,9 +13,13 @@ function printTriangle(rows: number, direction: string, isEmpty: boolean): void 
                 line += ' '.repeat(rows - 2);
                 line += '*';
             } else {
+                // For first and last rows, or when not empty, print full stars
                 line += '*'.repeat(rows);
             }
         } else {  // left direction
+            // Add increasing spaces for left direction (i spaces for each row)
+            line += ' '.repeat(i);
+            
             if (isEmpty && i > 0 && i < rows - 1) {
                 // For empty triangles (middle rows), print border stars with spaces
                 line += '*';
@@ -25,8 +29,6 @@ function printTriangle(rows: number, direction: string, isEmpty: boolean): void 
                 // For first and last rows, or when not empty, print full stars
                 line += '*'.repeat(rows);
             }
-            // Add spaces after the pattern for left alignment
-            line += ' '.repeat(rows - i - 1);
         }
         
         console.log(line);
@@ -39,7 +41,7 @@ const rl = readline.createInterface({
 });
 
 function getUserInput() {
-    rl.question('Enter the number:', (rowsInput) => {
+    rl.question('Enter the number:\n', (rowsInput) => {
         const rows = parseInt(rowsInput, 10);
         if (isNaN(rows) || rows < 1) {
             console.log("Please enter a valid number greater than 0.");
