@@ -6,20 +6,23 @@ function generatePattern(n: number): void {
         return;
     }
 
-    const topRow = "*".repeat(2 * n) + " ".repeat(n) + "*".repeat(2 * n);
-    console.log(topRow);
+    const asteriskPart = "*".repeat(2 * n);
+    const spacePart = " ".repeat(n);
+    console.log(asteriskPart + spacePart + asteriskPart);
 
-    for (let i = 0; i < n - 2; i++) {
+    for (let i = 1; i <= n - 2; i++) {
+        const middle = "/".repeat(2 * n - 2); 
+        const row = "*" + middle + "*";
+
         if (i === Math.floor((n - 2) / 2)) {
-
-            console.log("*".repeat(n) + "|".repeat(n) + "*".repeat(n));
+            const pipeRow = "*" + middle + "*" + "|".repeat(n) + "*" + middle + "*";
+            console.log(pipeRow);
         } else {
-
-            console.log("*".repeat(n) + "/".repeat(n) + "*".repeat(n));
+            console.log(row + spacePart + row);
         }
     }
 
-    console.log(topRow);
+    console.log(asteriskPart + spacePart + asteriskPart);
 }
 
 const rl = readline.createInterface({
@@ -30,5 +33,6 @@ const rl = readline.createInterface({
 rl.question('Enter the number: ', (answer) => {
     const inputNumber = parseInt(answer, 10);
     generatePattern(inputNumber);
-    rl.close(); 
+    rl.close();
 });
+
