@@ -1,44 +1,37 @@
 import * as readline from 'readline';
 
-
 function printTriangle(rows: number, direction: string, isEmpty: boolean): void {
     for (let i = 0; i < rows; i++) {
         let line = '';
         if (direction === 'right') {
-          
-            line += ' '.repeat(rows - i - 1); 
-            if (isEmpty) {
-              
+            // Add spaces for right alignment
+            line += ' '.repeat(rows - i - 1);
+            
+            if (isEmpty && i > 0 && i < rows - 1) {
+                // For empty triangles (middle rows), print border stars with spaces
                 line += '*';
-                if (i > 0) {
-                    line += ' '.repeat(i * 2 - 1); 
-                    line += '*';
-                } else {
-                    line += '*'.repeat(rows); 
-                }
+                line += ' '.repeat(rows - 2);
+                line += '*';
             } else {
-             
+                // For first and last rows, or when not empty, print full stars
                 line += '*'.repeat(rows);
             }
-        } else {
-           
-            if (isEmpty) {
-             
-                if (i === rows - 1) {
-                    line += '*'.repeat(rows); 
-                } else {
-                    line += '*';
-                    line += ' '.repeat(rows - 2); 
-                    line += '*';
-                }
+        } else {  // left direction
+            // Add increasing spaces for left direction (i spaces for each row)
+            line += ' '.repeat(i);
+            
+            if (isEmpty && i > 0 && i < rows - 1) {
+                // For empty triangles (middle rows), print border stars with spaces
+                line += '*';
+                line += ' '.repeat(rows - 2);
+                line += '*';
             } else {
-    
-                line += '*'.repeat(rows); 
+                // For first and last rows, or when not empty, print full stars
+                line += '*'.repeat(rows);
             }
-            line += ' '.repeat(i); 
         }
         
-        console.log(line.trimEnd());
+        console.log(line);
     }
 }
 
@@ -48,28 +41,26 @@ const rl = readline.createInterface({
 });
 
 function getUserInput() {
-    rl.question('Enter the number: ', (rowsInput) => {
+    rl.question('Enter the number:\n', (rowsInput) => {
         const rows = parseInt(rowsInput, 10);
         if (isNaN(rows) || rows < 1) {
             console.log("Please enter a valid number greater than 0.");
             return getUserInput();
         }
 
-        rl.question('Select direction: (right/left) ', (direction) => {
+        rl.question('Select direction: (right/left)\n', (direction) => {
             if (direction !== 'right' && direction !== 'left') {
                 console.log("Please enter 'right' or 'left'.");
                 return getUserInput();
             }
 
-            rl.question('Is it empty? (Y/n) ', (emptyInput) => {
+            rl.question('Is it empty? (Y/n)\n', (emptyInput) => {
                 const isEmpty = emptyInput.toLowerCase() === 'y';
                 printTriangle(rows, direction, isEmpty);
-
-                getUserInput();
+                rl.close();
             });
         });
     });
 }
 
-// Start the input process
 getUserInput();
