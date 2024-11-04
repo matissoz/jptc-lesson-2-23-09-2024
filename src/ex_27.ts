@@ -4,17 +4,17 @@ function generatePattern(size: number): string {
     const lines: string[] = [];
 
     for (let i = 0; i < size; i++) {
-        const hashes = '# '.repeat(size).trim(); // Create a line of hashes
+        const hashes = '# '.repeat(size).trim(); 
         if (i % 2 === 1) {
-            // For even indexed rows, prepend a space
+            
             lines.push(' ' + hashes);
         } else {
-            // For odd indexed rows, add without spaces
+            
             lines.push(hashes);
         }
     }
 
-    return lines.join('\n'); // Join the lines with new line characters
+    return lines.join('\n'); 
 }
 
 const rl = readline.createInterface({
@@ -37,5 +37,5 @@ function askNumber() {
     });
 }
 
-// Start the program
+
 askNumber();

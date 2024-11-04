@@ -3,14 +3,14 @@ import * as readline from 'readline';
 function generatePattern(n: number): string {
     const lines: string[] = [];
 
-    // Generate each line
+   
     for (let row = n; row >= 1; row--) {
-        // Create an array with numbers from 1 up to the current row number
+       
         const line = Array.from({ length: row }, (_, i) => (i + 1).toString()).join(" * ");
         lines.push(line);
     }
     
-    // Join all lines with a newline character
+    
     return lines.join('\n');
 }
 
@@ -34,5 +34,5 @@ function askNumber() {
     });
 }
 
-// Start the program
+
 askNumber();

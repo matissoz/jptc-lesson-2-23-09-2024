@@ -5,30 +5,30 @@ function generateCat(size: number) {
     
     const cat = [];
     
-    // Top of the head with ears
+    
     cat.push("/^^\\__/^^\\");
     
-    // Generate empty body lines based on size
+    
     for (let i = 0; i < size - 3; i++) {
         cat.push("|        |");
     }
     
-    // Add mouth line
+    
     cat.push("|   __   |");
     
-    // Bottom line
+    
     cat.push("\\__/  \\__/");
     
     return cat.join('\n');
 }
 
-// Create readline interface
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
-// Function to prompt user and display cat
+
 function askSize() {
     console.log("> Enter the number:");
     rl.question('> ', (input: string) => {
@@ -44,5 +44,5 @@ function askSize() {
     });
 }
 
-// Start the program
+
 askSize();

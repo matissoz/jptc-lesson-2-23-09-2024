@@ -3,20 +3,20 @@ import * as readline from 'readline';
 function generatePattern(size: number): string {
     const lines: string[] = [];
 
-    // Top part
+    
     for (let row = 0; row < size; row++) {
         let line = "-".repeat(size - row - 1) + "*".repeat(row * 2 + 1) + "-".repeat(size - row - 1);
         lines.push(line);
     }
 
-    // Middle part
+    
     const middleRow = size;
     for (let row = 0; row < size; row++) {
         let line = "-".repeat(row) + "*".repeat(2 * (size - row) - 1) + "-".repeat(row);
         lines.push(line);
     }
 
-    // Bottom part
+    
     for (let row = middleRow + 1; row < size * 2; row++) {
         let line = "-".repeat(row - middleRow) + "*".repeat(2 * (size * 2 - row) - 1) + "-".repeat(row - middleRow);
         lines.push(line);
@@ -45,5 +45,5 @@ function askSize() {
     });
 }
 
-// Start the program
+
 askSize();

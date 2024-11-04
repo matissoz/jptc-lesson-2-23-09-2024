@@ -4,20 +4,20 @@ function generatePattern(n: number): string {
     const lines: string[] = [];
     const half = Math.floor(n / 2);
 
-    // Upper section
+    
     for (let i = 0; i < half; i++) {
         const char = i % 2 === 0 ? "*" : "-";
-        const sidePattern = char.repeat(half + 1); // Adjusted to half + 1 for proper width
+        const sidePattern = char.repeat(half + 1); 
         lines.push(`${sidePattern}\\ /${sidePattern}`);
     }
 
-    // Middle section with centered '@'
-    lines.push(" ".repeat(half + 1) + "@" + " ".repeat(half + 1)); // Added extra space for centering
+    
+    lines.push(" ".repeat(half + 1) + "@" + " ".repeat(half + 1)); 
 
-    // Lower section (mirrored upper section)
+    
     for (let i = half - 1; i >= 0; i--) {
         const char = i % 2 === 0 ? "*" : "-";
-        const sidePattern = char.repeat(half + 1); // Same adjustment for lower section
+        const sidePattern = char.repeat(half + 1); 
         lines.push(`${sidePattern}/ \\${sidePattern}`);
     }
 
@@ -44,5 +44,5 @@ function askNumber() {
     });
 }
 
-// Start the program
+
 askNumber();

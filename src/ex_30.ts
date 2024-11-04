@@ -5,7 +5,7 @@ function generatePattern(size: number, type: string): string {
 
     switch (type) {
         case 'a':
-            // Pattern type a: Increasing numbers
+
             for (let i = 1; i <= size; i++) {
                 const numbers = Array.from({ length: i }, (_, index) => index + 1).join(' ');
                 lines.push(numbers);
@@ -13,25 +13,22 @@ function generatePattern(size: number, type: string): string {
             break;
 
         case 'b':
-            // Pattern type b: Decreasing lines with leading spaces
             for (let i = 0; i < size; i++) {
-                const spaces = ' '.repeat(i * 2); // Two spaces per row
+                const spaces = ' '.repeat(i * 2); 
                 const numbers = Array.from({ length: size - i }, (_, index) => index + 1).join(' ');
                 lines.push(spaces + numbers);
             }
             break;
 
         case 'c':
-            // Pattern type c: Right-aligned increasing numbers
             for (let i = 1; i <= size; i++) {
-                const spaces = ' '.repeat((size - i) * 2); // Two spaces per row
+                const spaces = ' '.repeat((size - i) * 2);
                 const numbers = Array.from({ length: i }, (_, index) => index + 1).join(' ');
                 lines.push(spaces + numbers);
             }
             break;
 
         case 'd':
-            // Pattern type d: Decreasing numbers starting from size
             for (let i = size; i >= 1; i--) {
                 const numbers = Array.from({ length: i }, (_, index) => i - index).join(' ');
                 lines.push(numbers);
@@ -75,5 +72,4 @@ function askSizeAndType() {
     });
 }
 
-// Start the program
 askSizeAndType();

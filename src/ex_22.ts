@@ -3,26 +3,26 @@ import * as readline from 'readline';
 function generatePattern(n: number, direction: string): string {
     const lines: string[] = [];
 
-    // Generate the top half of the pattern
+    
     for (let i = 0; i < n; i++) {
-        const spaces = ' '.repeat(i); // Increasing spaces for right alignment
-        const stars = '*'.repeat(n - i); // Decreasing stars
-        lines.push(spaces + stars); // Form the line
+        const spaces = ' '.repeat(i); 
+        const stars = '*'.repeat(n - i); 
+        lines.push(spaces + stars); 
     }
 
-    // Generate the bottom half of the pattern
+    
     for (let i = n - 1; i >= 1; i--) {
-        const spaces = ' '.repeat(n - i); // Decreasing spaces for right alignment
-        const stars = '*'.repeat(i); // Increasing stars
-        lines.push(spaces + stars); // Form the line
+        const spaces = ' '.repeat(n - i); 
+        const stars = '*'.repeat(i); 
+        lines.push(spaces + stars); 
     }
 
-    // If the direction is left, we need to align differently
+    
     if (direction === 'L') {
-        return lines.map(line => line.padStart(n)).join('\n'); // Pad the left side for left alignment
+        return lines.map(line => line.padStart(n)).join('\n'); 
     }
     
-    return lines.join('\n'); // For right alignment
+    return lines.join('\n'); 
 }
 
 const rl = readline.createInterface({
@@ -55,5 +55,5 @@ function askNumberAndDirection() {
     });
 }
 
-// Start the program
+
 askNumberAndDirection();

@@ -4,24 +4,24 @@ function generateHeart(size: number, text: string = ""): string {
     const lines: string[] = [];
     const width = size;
     
-    // Generate top curves of the heart
+    
     lines.push("  *****     *****");
     lines.push(" *******   *******");
     lines.push("********* *********");
     
-    // Middle line with text if provided
+    
     if (text) {
-        const totalWidth = 19; // Width of the pattern
+        const totalWidth = 19; 
         const padding = Math.floor((totalWidth - text.length) / 2);
         const middleLine = "*".repeat(padding) + text + "*".repeat(totalWidth - padding - text.length);
         lines.push(middleLine);
     } else {
-        lines.push("*".repeat(19)); // Full line of stars if no text
+        lines.push("*".repeat(19)); 
     }
     
-    // Generate bottom part of heart
-    let stars = 17; // Starting number of stars for the descending part
-    let spaces = 1;  // Starting number of spaces for indentation
+    
+    let stars = 17; 
+    let spaces = 1; 
     
     while (stars >= 1) {
         lines.push(" ".repeat(spaces) + "*".repeat(stars));
@@ -55,5 +55,5 @@ function askSize() {
     });
 }
 
-// Start the program
+
 askSize();

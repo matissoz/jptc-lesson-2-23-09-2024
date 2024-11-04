@@ -5,31 +5,31 @@ function generatePattern(size: number, type: string): string {
 
     switch (type) {
         case 'a':
-            // Pattern type a: Increasing number of hashes
+            
             for (let i = 1; i <= size; i++) {
                 lines.push('# '.repeat(i).trim());
             }
             break;
 
         case 'b':
-            // Pattern type b: Decreasing number of hashes
+            
             for (let i = size; i >= 1; i--) {
                 lines.push('# '.repeat(i).trim());
             }
             break;
 
         case 'c':
-            // Pattern type c: Right-aligned increasing hashes
+            
             for (let i = 0; i < size; i++) {
-                const spaces = ' '.repeat(i * 2); // 2 spaces per row
+                const spaces = ' '.repeat(i * 2); 
                 lines.push(spaces + '# '.repeat(size - i).trim());
             }
             break;
 
         case 'd':
-            // Pattern type d: Right-aligned decreasing hashes
+           
             for (let i = size - 1; i >= 0; i--) {
-                const spaces = ' '.repeat(i * 2); // 2 spaces per row
+                const spaces = ' '.repeat(i * 2); 
                 lines.push(spaces + '# '.repeat(size - i).trim());
             }
             break;
@@ -71,5 +71,5 @@ function askSizeAndType() {
     });
 }
 
-// Start the program
+
 askSizeAndType();

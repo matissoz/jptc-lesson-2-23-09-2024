@@ -4,29 +4,29 @@ function printTriangle(rows: number, direction: string, isEmpty: boolean): void 
     for (let i = 0; i < rows; i++) {
         let line = '';
         if (direction === 'right') {
-            // Add spaces for right alignment
+        
             line += ' '.repeat(rows - i - 1);
             
             if (isEmpty && i > 0 && i < rows - 1) {
-                // For empty triangles (middle rows), print border stars with spaces
+          
                 line += '*';
                 line += ' '.repeat(rows - 2);
                 line += '*';
             } else {
-                // For first and last rows, or when not empty, print full stars
+                
                 line += '*'.repeat(rows);
             }
-        } else {  // left direction
-            // Add increasing spaces for left direction (i spaces for each row)
+        } else {  
+            
             line += ' '.repeat(i);
             
             if (isEmpty && i > 0 && i < rows - 1) {
-                // For empty triangles (middle rows), print border stars with spaces
+                
                 line += '*';
                 line += ' '.repeat(rows - 2);
                 line += '*';
             } else {
-                // For first and last rows, or when not empty, print full stars
+               
                 line += '*'.repeat(rows);
             }
         }

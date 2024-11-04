@@ -1,4 +1,4 @@
-const readline = require('readline');
+import readline from 'readline';
 
 function generateNumberPattern(rows: number): string {
     const lines: string[] = [];
@@ -7,23 +7,23 @@ function generateNumberPattern(rows: number): string {
         const numbers: number[] = [];
         let currentNumber = Math.pow(2, row);
         
-        // Generate numbers for current row
+        
         for (let i = 0; i <= row; i++) {
             numbers.push(currentNumber);
             currentNumber = currentNumber / 2;
         }
         
-        // Format the numbers with proper spacing
+        
         const formattedNumbers = numbers.map(num => {
-            // Convert number to string and pad with spaces to width of 4
+            
             return num.toString().padStart(3);
         });
         
-        // Add proper indentation based on the max width
+        
         const maxWidth = Math.pow(2, rows - 1).toString().length;
         const indentation = " ".repeat(maxWidth - Math.pow(2, row).toString().length);
         
-        // Join numbers with 4 spaces between them
+        
         lines.push(indentation + formattedNumbers.join("    "));
     }
     
@@ -50,5 +50,5 @@ function askNumber() {
     });
 }
 
-// Start the program
+
 askNumber();
